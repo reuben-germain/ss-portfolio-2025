@@ -180,4 +180,12 @@ footer {
     .icons {
         justify-content: flex-start;
     }
+    footer {
+        text-align: left;
+        padding: 2rem;
+    }
+    .footer-text {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 3rem;
+    }
 }
