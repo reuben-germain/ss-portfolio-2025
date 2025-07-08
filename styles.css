@@ -2,6 +2,7 @@
     --primary-color: #7FFFD4;
     --secondary-color: #191970;
     --background-color: #FF7F50;
+    --white: #fff;
     --platinum: #e3e4e8;
     --windsurfing: #32779b;
     --marina: #5a91c7;
@@ -12,6 +13,7 @@
     --font-family: 'Inter', 'Arial', sans-serif;
     --base-font-size: 1rem;
     --corners: 24px 0;
+    --corners-sm: 12px 0;
 }
 
 html {
@@ -152,6 +154,46 @@ footer {
 .icons .social:hover {
     fill: var(--marina);
 }
+
+/* Projects section */
+main {
+    margin-top: 5rem;
+    margin-bottom: 3rem;
+    text-align: center;
+}
+.project {
+    background-color: var(--white);
+    border-radius: var(--corners);
+    padding: 3rem;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 3rem;
+}
+.projects {
+    display: flex;
+    flex-flow: nowrap;
+    gap: 3rem;
+}
+.project ul {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    gap: 1rem;
+}
+.project li {
+    background-color: var(--marina);
+    color: var(--white);
+    padding: 0.5rem;
+    border-radius: var(--corners-sm);
+    font-size: calc(var(--base-font-size) * 0.875);
+}
+.project img {
+    grid-row: 1 / 2;
+}
+
 
 @media(min-width: 750px) {
     :root {
