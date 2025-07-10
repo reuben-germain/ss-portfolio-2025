@@ -1,8 +1,8 @@
 :root {
-    --primary-color: #7FFFD4;
-    --secondary-color: #191970;
-    --background-color: #FF7F50;
-    --white: #fff;
+    /* --primary-color: #7FFFD4; */
+    /* --secondary-color: #191970; */
+    /* --background-color: #FF7F50; */
+    --white: #f9faff;
     --platinum: #e3e4e8;
     --windsurfing: #32779b;
     --marina: #5a91c7;
@@ -14,10 +14,13 @@
     --base-font-size: 1rem;
     --corners: 24px 0;
     --corners-sm: 12px 0;
+    --ld-bkgd: light-dark(var(--platinum), var(--charcoal));
+    --ld-text: light-dark(var(--onyx), var(--platinum));
 }
 
 html {
     box-sizing: border-box;
+    color-scheme: light dark;
 }
 
 *,
