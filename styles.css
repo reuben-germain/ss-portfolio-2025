@@ -16,6 +16,8 @@
     --corners-sm: 12px 0;
     --ld-bkgd: light-dark(var(--platinum), var(--charcoal));
     --ld-text: light-dark(var(--onyx), var(--platinum));
+    --ld-projects: light-dark(var(--white), #2e313d);
+    --ld-blue: light-dark(var(--windsurfing), #6dadd0);
 }
 
 html {
@@ -44,7 +46,7 @@ h2 {
     margin: 0;
     font-size: var(--base-font-size);
     text-transform: uppercase;
-    color: var(--windsurfing);
+    color: var(--ld-blue);
     letter-spacing: 0.25em;
 }
 
@@ -57,7 +59,7 @@ p {
 }
 
 a {
-    color: var(--windsurfing);
+    color: var(--ld-blue);
 }
 
 a:hover {
@@ -67,8 +69,8 @@ a:hover {
 body {
     font-size: var(--base-font-size);
     font-family: var(--font-family);
-    background-color: var(--platinum);
-    color: var(--onyx);
+    background-color: var(--ld-bkgd);
+    color: var(--ld-text);
 }
 
 /* Make sure images don't excced the width of the window */
@@ -94,7 +96,7 @@ ul svg {
 }
 
 .social {
-    fill: var(--windsurfing)
+    fill: var(--ld-blue);
 }
 
 .social:hover {
@@ -151,7 +153,7 @@ footer {
 }
 
 .icons .social {
-    fill: var(--onyx) 
+    fill: var(--ld-blue); 
 }
 
 .icons .social:hover {
@@ -165,7 +167,7 @@ main {
     text-align: center;
 }
 .project {
-    background-color: var(--white);
+    background-color: var(--ld-projects);
     border-radius: var(--corners);
     padding: 3rem;
     display: grid;
