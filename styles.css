@@ -20,16 +20,32 @@
     --ld-blue: light-dark(var(--windsurfing), #6dadd0);
 }
 
+/* Set base font size for rem scaling */
 html {
     box-sizing: border-box;
     color-scheme: light dark;
+    font-size: var(--base-font-size);
+    scroll-behavior: smooth;
 }
 
+/* Light/Dark mode toggle via checked inputs */
 html:has(#mode-switcher #light:checked) {
     color-scheme: light;
 }
 html:has(#mode-switcher #dark:checked) {
     color-scheme: dark;
+}
+
+/* Fallback for system preferences */
+@media (prefers-color-scheme: dark) {
+    html:not(:has(#mode-switcher #light:checked)) {
+        color-scheme: dark;
+    }
+}
+@media (prefers-color-scheme: light) {
+    html:not(:has(#mode-switcher #dark:checked)) {
+        color-scheme: light;
+    }
 }
 
 *,
@@ -46,7 +62,7 @@ html:has(#mode-switcher #dark:checked) {
 
 h1 {
     margin: 0;
-    font-size: calc(var(--base-font-size) * 2.9);
+    font-size: clamp(2rem, 6vw, calc(var(--base-font-size) * 2.9));
 }
 
 h2 {
@@ -67,6 +83,7 @@ p {
 
 a {
     color: var(--ld-blue);
+    transition: color 0.3s ease;
 }
 
 a:hover {
@@ -80,7 +97,7 @@ body {
     color: var(--ld-text);
 }
 
-/* Make sure images don't excced the width of the window */
+/* Make sure images don't exceed the width of the window */
 img {
     max-width: 100%;
     border-radius: var(--corners);
@@ -104,6 +121,7 @@ ul svg {
 
 .social {
     fill: var(--ld-blue);
+    transition: fill 0.3s ease;
 }
 
 .social:hover {
@@ -118,7 +136,7 @@ ul svg {
     text-align: center;
 }
 
-/* Centeres the image on the page */
+/* Centers the image on the page */
 .main-article img {
     margin: 0 auto;
     object-fit: cover;
@@ -159,8 +177,13 @@ footer {
     margin: 2rem 0;
 }
 
+.icons {
+    /* Moved duplicate rules here */
+}
+
 .icons .social {
-    fill: var(--ld-blue); 
+    fill: var(--ld-blue);
+    transition: fill 0.3s ease;
 }
 
 .icons .social:hover {
@@ -173,6 +196,7 @@ main {
     margin-bottom: 3rem;
     text-align: center;
 }
+
 .project {
     background-color: var(--ld-projects);
     border-radius: var(--corners);
@@ -181,11 +205,13 @@ main {
     grid-template-columns: 1fr;
     gap: 3rem;
 }
+
 .projects {
     display: flex;
     flex-flow: nowrap;
     gap: 3rem;
 }
+
 .project ul {
     margin: 0;
     padding: 0;
@@ -195,6 +221,7 @@ main {
     justify-content: center;
     gap: 1rem;
 }
+
 .project li {
     background-color: var(--marina);
     color: var(--white);
@@ -202,11 +229,12 @@ main {
     border-radius: var(--corners-sm);
     font-size: calc(var(--base-font-size) * 0.875);
 }
+
 .project img {
     grid-row: 1 / 2;
 }
 
-/*  Light/Dark buttons*/
+/* Light/Dark buttons*/
 fieldset {
     display: flex;
     flex-flow: row wrap;
@@ -216,17 +244,20 @@ fieldset {
     margin: 0 auto 5rem auto;
 }
 
+/* Accessibility: visually hidden legend for fieldset */
+.visually-hidden {
+    position: absolute !important;
+    width: 1px !important;
+    height: 1px !important;
+    padding: 0 !important;
+    margin: -1px !important;
+    overflow: hidden !important;
+    clip: rect(0 0 0 0) !important;
+    white-space: nowrap !important;
+    border: 0 !important;
+}
 
-
-
-
-
-
-
-
-
-
-
+/* Responsive styling */
 @media(min-width: 750px) {
     :root {
         --base-font-size: 1.125rem;
@@ -266,6 +297,7 @@ fieldset {
         grid-column: 1/4;
     }
 }
+
 @media (min-width: 850px) {
     main {
         text-align: left;
