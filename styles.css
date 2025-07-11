@@ -25,6 +25,13 @@ html {
     color-scheme: light dark;
 }
 
+html:has(#mode-switcher #light:checked) {
+    color-scheme: light;
+}
+html:has(#mode-switcher #dark:checked) {
+    color-scheme: dark;
+}
+
 *,
 *::before,
 *::after {
@@ -197,6 +204,16 @@ main {
 }
 .project img {
     grid-row: 1 / 2;
+}
+
+/*  Light/Dark buttons*/
+fieldset {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    gap: 3rem;
+    max-width: 300px;
+    margin: 0 auto 5rem auto;
 }
 
 
